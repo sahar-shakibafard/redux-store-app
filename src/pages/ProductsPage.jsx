@@ -21,7 +21,6 @@ const ProductsPage = () => {
   // const products = useProducts();
   const dispatch = useDispatch();
   const products = useSelector((store) => store.products);
-  // const products = [];
 
   const [displayed, setDisplayed] = useState([]);
   const [search, setSearch] = useState("");
@@ -29,10 +28,10 @@ const ProductsPage = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // useEffect(() => {
-  //   setDisplayed(products);
-  //   setQuery(getInitialQuery(searchParams));
-  // }, [products]);
+  useEffect(() => {
+    setDisplayed(products.products);
+    setQuery(getInitialQuery(searchParams));
+  }, [products]);
 
   useEffect(() => {
     dispatch(fetchProducts());
